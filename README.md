@@ -4,9 +4,9 @@ A secure, session-based file sharing platform built with Spring Boot and standar
 
 ## 👥 The Team
 * **Project Manager:** Hamza Badshah
-* **Backend Developers:** Hammad & Hamza
-* **Frontend Developers:** Aman & Hafsa
-* **Database Designer:** Esha
+* **Backend Developers:** Hammad Tahir & Hamza Badshah
+* **Frontend Developers:** Aman Sajid & Hafsa Khan
+* **Database Designer:** Esha Chatta
 
 ## 🚀 How to Run the Project locally
 
@@ -16,7 +16,7 @@ A secure, session-based file sharing platform built with Spring Boot and standar
 * Update the `application.properties` file in the backend folder with your local MySQL password.
 
 ### 2. Backend Setup (Spring Boot)
-* Open the `backend` folder in your IDE (IntelliJ, VS Code, or Eclipse).
+* Open the `backend` folder in your IDE (VS Code).
 * Let Maven download the dependencies.
 * Run the `SecureFileApplication.java` file.
 * The server will start on `http://localhost:8080`.
