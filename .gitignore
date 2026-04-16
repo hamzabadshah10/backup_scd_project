@@ -1,0 +1,13 @@
+# Ignore backend compiled files
+backend/target/
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
+
+# CRITICAL: Ignore environment variables and DB passwords
+backend/src/main/resources/application.properties
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.iml
