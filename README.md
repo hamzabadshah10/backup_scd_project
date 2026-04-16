@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Secure File Sharing System 🔒
 
 A secure, session-based file sharing platform built with Spring Boot and standard web technologies.
