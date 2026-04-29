@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureVault | Dashboard</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/app.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        space: ['Space Grotesk', 'sans-serif'],
+                        fira: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-[#020617] text-gray-100 font-inter antialiased h-screen flex overflow-hidden selection:bg-blue-500/30 selection:text-blue-200">
+
+    <!-- Background Effects -->
+    <div class="fixed inset-0 cyber-grid opacity-30 pointer-events-none z-0"></div>
+    <div class="glow-orb glow-orb-blue top-[-200px] left-[-200px] opacity-20"></div>
+    <div class="glow-orb glow-orb-purple bottom-[-200px] right-[-200px] opacity-10"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside
+        class="w-72 bg-slate-900/40 border-r border-white/5 backdrop-blur-2xl flex flex-col relative z-20 shadow-2xl">
+        <div class="h-24 flex items-center px-8 border-b border-white/5">
+            <div class="flex items-center gap-4 group cursor-pointer">
+                <div
+                    class="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-500/30 flex items-center justify-center neon-glow-blue transition-all group-hover:scale-110">
+                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                        </path>
+                    </svg>
+                </div>
+                <h1 class="font-bold text-xl tracking-tight text-white font-space">SecureVault</h1>
+            </div>
+        </div>
+
+        <nav class="flex-1 py-8 px-5 space-y-3" id="sidebarNav">
+            <a href="#dashboard"
+                class="nav-item active flex items-center gap-4 px-5 py-4 rounded-2xl bg-blue-600/10 border border-blue-500/20 text-blue-400 font-bold transition-all shadow-[0_0_20px_rgba(37,99,235,0.1)]"
+                data-target="view-dashboard" data-title="Overview" data-desc="Manage and secure your digital assets.">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                    </path>
+                </svg>
+                Dashboard
+            </a>
+            <a href="#upload-file"
+                class="nav-item flex items-center gap-4 px-5 py-4 rounded-2xl text-gray-500 hover:text-white hover:bg-slate-800/40 transition-all border border-transparent hover:border-white/5"
+                data-target="view-upload-file" data-title="Upload File" data-desc="Encrypt and securely share your files.">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                </svg>
+                Upload File
+            </a>
+            <a href="#my-files"
+                class="nav-item flex items-center gap-4 px-5 py-4 rounded-2xl text-gray-500 hover:text-white hover:bg-slate-800/40 transition-all border border-transparent hover:border-white/5"
+                data-target="view-my-files" data-title="My Files" data-desc="View and manage your encrypted assets.">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+                </svg>
+                My Files
+            </a>
+            <a href="#settings"
+                class="nav-item flex items-center gap-4 px-5 py-4 rounded-2xl text-gray-500 hover:text-white hover:bg-slate-800/40 transition-all border border-transparent hover:border-white/5"
+                data-target="view-settings" data-title="Settings" data-desc="Configure your account preferences.">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                    </path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                Settings
+            </a>
+        </nav>
+
+        <div class="p-6 border-t border-white/5">
+            <button id="logoutBtn"
+                class="flex items-center justify-center gap-3 w-full px-5 py-4 rounded-2xl border border-white/5 text-gray-500 hover:text-white hover:bg-red-500/10 hover:border-red-500/30 transition-all font-bold">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                    </path>
+                </svg>
+                Log Out
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col relative z-10 h-screen overflow-hidden">
+
+        <!-- Topbar -->
+        <header
+            class="h-24 flex items-center justify-between px-10 bg-transparent border-b border-white/5 backdrop-blur-sm">
+            <div>
+                <h2 id="pageTitle" class="text-3xl font-bold text-white tracking-tight font-space">Overview</h2>
+                <p id="pageDesc" class="text-sm text-gray-500 mt-1">Manage and secure your digital assets.</p>
+            </div>
+            <div class="flex items-center gap-6">
+                <div
+                    class="flex items-center gap-4 bg-slate-900/50 px-6 py-2.5 rounded-2xl border border-white/10 shadow-lg group cursor-pointer hover:border-blue-500/30 transition-all">
+                    <div
+                        class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-sm font-bold text-white neon-glow-blue">
+                        U</div>
+                    <div class="flex flex-col">
+                        <span id="userDisplay" class="text-sm font-bold text-gray-200">User</span>
+                        <span class="text-[10px] text-blue-400 font-fira uppercase tracking-wider">Premium Access</span>
+                    </div>
+                    <svg class="w-4 h-4 text-gray-600 group-hover:text-blue-400 transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <!-- Scrollable Content -->
+        <div class="flex-1 overflow-y-auto custom-scrollbar px-10 pb-16 pt-8">
+
+            <div id="alertBox"
+                class="hidden mb-8 p-5 rounded-2xl text-sm border font-fira relative z-10 backdrop-blur-md"></div>
+
+            <!-- Views Container -->
+            <div id="views-container">
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+    <script src="js/upload.js"></script>
+    <script src="js/files.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>
