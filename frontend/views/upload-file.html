@@ -1,0 +1,141 @@
+<!-- ================== UPLOAD VIEW ================== -->
+<div id="view-upload-file" class="view-section animate-in slide-in-from-bottom-8 duration-500 h-full">
+    <div class="h-full">
+        <div class="glass-panel cyber-border rounded-[2.5rem] p-12 flex flex-col relative overflow-hidden h-full">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/5 rounded-full blur-3xl"></div>
+
+            <form id="uploadForm" class="flex-1 flex flex-col relative z-10">
+                <!-- Drag & Drop Zone -->
+                <div class="relative group mb-10 flex-1 min-h-[300px]">
+                    <label id="dropZone"
+                        class="relative flex flex-col items-center justify-center w-full h-full border-2 border-white/10 border-dashed rounded-[2rem] cursor-pointer bg-slate-900/30 hover:bg-slate-900/60 hover:border-blue-500/50 transition-all group-hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] overflow-hidden">
+
+                        <div id="dropZoneContent"
+                            class="flex flex-col items-center justify-center pt-5 pb-6 transition-all duration-300">
+                            <div
+                                class="w-24 h-24 rounded-3xl bg-blue-600/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-8 group-hover:scale-110 transition-transform neon-glow-blue">
+                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="mb-3 text-3xl text-gray-200 font-bold font-space text-center px-4">Drag & Drop
+                                Your
+                                File Here</p>
+                            <p class="text-gray-500 mb-4 text-lg">Or Click to Browse Files</p>
+
+                            <!-- Filename and Bar Container -->
+                            <div class="flex flex-col items-center w-full max-w-md">
+                                <div class="px-8 py-3 rounded-xl bg-blue-900/30 border border-blue-500/20 text-blue-400 text-sm font-bold font-fira tracking-widest uppercase mb-4"
+                                    id="fileNameDisplay">Max File Size: 20 MB</div>
+
+                                <!-- Inline Progress Bar (Runs below filename) -->
+                                <div id="inlineProgressContainer"
+                                    class="hidden w-full space-y-2 animate-in fade-in slide-in-from-top-2 duration-300 px-2">
+                                    <div
+                                        class="flex justify-between items-center text-[10px] font-bold text-gray-500 uppercase tracking-widest font-fira px-1">
+                                        <span id="inlineStatusText">Encrypting...</span>
+                                        <span id="inlinePercentage" class="text-blue-400">0%</span>
+                                    </div>
+                                    <div
+                                        class="progress-container h-2 rounded-full bg-slate-900 border border-white/5 overflow-hidden">
+                                        <div id="inlineProgressBar" class="progress-bar rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input id="fileInput" type="file" class="hidden" required />
+                    </label>
+                </div>
+
+                <!-- Options Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                    <div class="space-y-6 bg-slate-900/40 p-8 rounded-3xl border border-white/5">
+                        <h4
+                            class="text-sm font-bold text-white uppercase tracking-[0.2em] mb-4 font-fira border-b border-white/5 pb-4">
+                            Security Policies</h4>
+                        <label class="flex items-center space-x-4 cursor-pointer group">
+                            <div
+                                class="relative w-6 h-6 rounded-lg border border-gray-600 bg-gray-800 flex items-center justify-center group-hover:border-blue-400 transition-colors">
+                                <input type="checkbox" id="isOneTime"
+                                    class="peer absolute opacity-0 cursor-pointer w-full h-full">
+                                <svg class="w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <div
+                                    class="absolute inset-0 bg-blue-600 rounded-lg opacity-0 peer-checked:opacity-100 transition-opacity -z-10 shadow-[0_0_10px_rgba(37,99,235,0.5)]">
+                                </div>
+                            </div>
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-sm font-bold text-gray-200 group-hover:text-white transition-colors">Self-Destruct</span>
+                                <span class="text-[10px] text-gray-500 uppercase tracking-wider">Deletes
+                                    after 1 download</span>
+                            </div>
+                        </label>
+
+                        <label class="flex items-center space-x-4 cursor-pointer group">
+                            <div
+                                class="relative w-6 h-6 rounded-lg border border-gray-600 bg-gray-800 flex items-center justify-center group-hover:border-blue-400 transition-colors">
+                                <input type="checkbox" id="is24Hour"
+                                    class="peer absolute opacity-0 cursor-pointer w-full h-full">
+                                <svg class="w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <div
+                                    class="absolute inset-0 bg-blue-600 rounded-lg opacity-0 peer-checked:opacity-100 transition-opacity -z-10 shadow-[0_0_10px_rgba(37,99,235,0.5)]">
+                                </div>
+                            </div>
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-sm font-bold text-gray-200 group-hover:text-white transition-colors">24-Hour
+                                    Expiration</span>
+                                <span class="text-[10px] text-gray-500 uppercase tracking-wider">Automated
+                                    secure deletion</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="bg-slate-900/40 p-8 rounded-3xl border border-white/5 flex flex-col justify-between">
+                        <h4
+                            class="text-sm font-bold text-white uppercase tracking-[0.2em] mb-4 font-fira border-b border-white/5 pb-4">
+                            Access Control</h4>
+                        <div class="relative group">
+                            <label class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-3 block">Vault
+                                Access Password</label>
+                            <div class="relative">
+                                <div
+                                    class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500 group-focus-within:text-blue-400">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <input type="password" id="filePassword"
+                                    class="w-full bg-slate-950/50 border border-white/5 rounded-2xl pl-12 pr-4 py-4 text-sm text-gray-100 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all font-inter"
+                                    placeholder="Optional encryption key">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" id="uploadBtn"
+                    class="w-full cyber-btn text-white font-bold py-5 rounded-[1.5rem] transition-all duration-300 flex justify-center items-center gap-4 text-xl shadow-2xl">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                        </path>
+                    </svg>
+                    <span>Encrypt & Securely Upload</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
