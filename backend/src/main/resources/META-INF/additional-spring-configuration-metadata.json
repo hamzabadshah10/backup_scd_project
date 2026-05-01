@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "app.security.encryption-key",
+      "type": "java.lang.String",
+      "description": "Encryption key used for securing files. Must be 32 characters for AES-256."
+    }
+  ]
+}

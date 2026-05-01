@@ -1,5 +1,8 @@
 package com.paf.securefile.dto;
 
-public class FileAccessRequest {
+import lombok.Data;
 
+@Data
+public class FileAccessRequest {
+    private String password;
 }

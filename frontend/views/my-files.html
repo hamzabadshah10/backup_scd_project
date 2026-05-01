@@ -1,0 +1,48 @@
+<!-- ================== MY FILES VIEW ================== -->
+<div id="view-my-files" class="view-section animate-in fade-in duration-500 h-full">
+    <div
+        class="glass-panel cyber-border rounded-[2.5rem] overflow-hidden flex flex-col h-[calc(100vh-180px)] shadow-2xl">
+        <div
+            class="px-10 py-8 border-b border-white/5 flex justify-between items-center bg-slate-900/20 shrink-0">
+            <div>
+                <h3 class="text-2xl font-bold text-white font-space">Encrypted Assets</h3>
+                <p class="text-sm text-gray-500">All files are stored with end-to-end encryption.</p>
+            </div>
+            <button id="refreshBtn"
+                class="flex items-center gap-3 text-sm font-bold text-gray-300 hover:text-white transition-all bg-slate-800/40 hover:bg-blue-600/20 px-6 py-3 rounded-2xl border border-white/5 hover:border-blue-500/30">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                    </path>
+                </svg>
+                Refresh Vault
+            </button>
+        </div>
+
+        <!-- Table Header -->
+        <div
+            class="grid grid-cols-12 gap-6 px-10 py-5 border-b border-white/5 bg-slate-900/40 text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] font-fira shrink-0">
+            <div class="col-span-5">Asset Identification</div>
+            <div class="col-span-2">Payload Size</div>
+            <div class="col-span-2">Timestamp</div>
+            <div class="col-span-3 text-right">Security Actions</div>
+        </div>
+
+        <!-- Files List Container -->
+        <div class="flex-1 overflow-y-auto custom-scrollbar p-4">
+            <div id="filesContainer" class="flex flex-col gap-3">
+                <!-- Populated by JS -->
+                <div class="flex flex-col items-center justify-center py-32 text-gray-600">
+                    <svg class="w-16 h-16 mb-4 animate-spin opacity-40" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                            stroke-width="4" fill="none"></circle>
+                        <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                        </path>
+                    </svg>
+                    <p class="font-space text-lg font-bold">Synchronizing Encrypted Data...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
