@@ -110,9 +110,6 @@ public class FileService {
             //
             // In Windows, cannot delete open file. We will just delete meta, scheduler
             // leans orphaned files?
-            // Better: just delete from DB now, file on disk will be orphaned but we can
-            // delete it after stream closes.
-            fileMetaRepository.delete(meta);
             //
             // We should ideally clean disk later. The stream will be consumed in the
             // controller.
