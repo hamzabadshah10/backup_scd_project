@@ -133,5 +133,5 @@ To maintain a stable `main` branch, all team members must follow this workflow:
 
 <br/>
 <div align="center">
-  <i>Built with ❤️ by The Team</i>
+  <i>© 2026 Secure File Sharing System Team - Software Engineering Department, Developed as part of the School of Computing Sciences, Pak-Austria Fachhochschule (PAF-IAST)</i>
 </div>
